@@ -1,10 +1,27 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 900px){
+  body{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+body a{
+  color: greenyellow;
+}
+
+
 .header-slika {
   width: 100%;
   height: 300px;
 }
 
 .header-text {
-  font-size: 25px;
+  font-size: 30px;
   color: white;
   position: absolute;
   right: 0;
@@ -20,29 +37,47 @@
 }
 
 .navigacija {
-  background-color: #777;
+  background-color: #f7f7f7;
   height: 50px;
 }
 
 .navigacija a {
-  margin: 20px;
-  padding: 5%;
-  color: white;
+  margin: 0px;
+  padding-left: 5%;
+  padding-right: 5%;
+  color: #777;
   text-decoration: none;
   border-right: 2px solid white;
+  text-transform: uppercase;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  padding-top: 1.4%;
+  padding-bottom: 1.4%;
 }
+
+.navigacija a:hover{
+  background-color: greenyellow;
+  color: red;
+  opacity: 0.8;
+}
+
 .products {
   list-style: none;
 }
 
 li {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
+
 li > img {
   display: inline;
-  width: 150px;
+  width: 30%;
+  height: auto;
+  padding: 20px;
+  max-height: 200px;
 }
 
 .leftSide {
@@ -50,10 +85,13 @@ li > img {
 }
 .leftSide h3 {
   color: greenyellow;
+  font-size: 30px;
+  padding-left: 40px;
 }
 
 .leftSide h2 {
   color: greenyellow;
+  text-transform: uppercase;
 }
 
 .rightSide {
@@ -62,8 +100,8 @@ li > img {
 
 .article {
   display: flex;
-  gap: 25px;
-  margin: 40px;
+  gap: 10px;
+  margin: 10px;
 }
 
 .left1,
@@ -72,21 +110,40 @@ li > img {
 .right2 {
   border: 3px solid #777;
   border-radius: 5%;
-  margin-bottom: 50px;
-  padding: 50px;
+  margin-bottom: 10px;
+  padding: 20px;
 }
 
 .right1 {
   background-color: gainsboro;
 }
 
-.right2 h2 {
+.right1 h2{
+  text-transform: uppercase;
   color: greenyellow;
 }
+
+.right1 p {
+  margin-bottom: 5px;
+}
+
+.right2 h2 {
+  color: greenyellow;
+  text-transform: uppercase;
+}
+
 
 footer {
   width: 100%;
   background-color: greenyellow;
   padding: 25px;
   text-align: center;
+}
+
+footer a{
+  color: black;
+}
+
+footer a:hover{
+  color: white;
 }
