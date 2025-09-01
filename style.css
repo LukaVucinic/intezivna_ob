@@ -144,6 +144,10 @@ li > img {
   margin-bottom: 5px;
 }
 
+.right2{
+  padding-bottom: 0px;
+}
+
 .right2 h2 {
   color: greenyellow;
   text-transform: uppercase;
