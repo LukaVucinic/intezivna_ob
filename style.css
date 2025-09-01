@@ -74,14 +74,14 @@ li {
 
 li > img {
   display: inline;
-  width: 30%;
-  height: auto;
+  width: 40%;
+  height: 10%;
   padding: 20px;
   max-height: 200px;
 }
 
 .produtext h4 {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .leftSide {
@@ -127,6 +127,10 @@ li > img {
 .right2:hover {
   background-color: gainsboro;
   transition: background-color 0.3s ease;
+}
+
+.left2 h4{
+  margin-top: 20px;
 }
 
 .right1 h2{
