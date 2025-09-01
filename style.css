@@ -52,8 +52,8 @@ body a{
   text-align: center;
   height: 50px;
   line-height: 50px;
-  padding-top: 1.4%;
-  padding-bottom: 1.4%;
+  padding-top: 1.7%;
+  padding-bottom: 1.7%;
 }
 
 .navigacija a:hover{
@@ -109,7 +109,7 @@ li > img {
 .right1,
 .right2 {
   border: 3px solid #777;
-  border-radius: 5%;
+  border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px;
 }
