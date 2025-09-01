@@ -121,8 +121,12 @@ li > img {
   padding: 20px;
 }
 
-.right1 {
+.left1:hover,
+.left2:hover,
+.right1:hover,
+.right2:hover {
   background-color: gainsboro;
+  transition: background-color 0.3s ease;
 }
 
 .right1 h2{
