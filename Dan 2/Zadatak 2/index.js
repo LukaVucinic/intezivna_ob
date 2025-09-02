@@ -1,3 +1,5 @@
+'use strict';
+
 const bankOne = [
   {
     keyCode: 81,
@@ -112,30 +114,77 @@ const bankTwo = [
   },
 ];
 
-const btnList = document.querySelectorAll(".button1");
+let power = true;
+let currentBank = bankOne;
+let volume = 0.5;
 
-btnList.forEach((element) => {
-  element.addEventListener("click", function (e) {
-    const keyTr = e.target.textContent;
-    for (let i = 0; i < bankOne.length; i++) {
-      if (bankOne[i].keyTrigger === keyTr) {
-        const zvuk = new Audio(bankOne[i].url);
-        zvuk.play();
-        break;
-      }
+const display = document.getElementById("display");
+const powerSwitch = document.getElementById("power-switch");
+const powerLabel = document.getElementById("power-label");
+const bankSwitch = document.getElementById("bank-switch");
+const bankLabel = document.getElementById("bank-label");
+const volumeSlider = document.getElementById("volume-slider");
+const volumeValue = document.getElementById("volume-value");
+const buttons = document.querySelectorAll(".button1");
+
+
+volumeSlider.value = volume * 100;
+
+function updateVolume(){
+  volumeValue.textContent = `Volume: ${Math.round(volume*100)}%`;
+}
+
+volumeSlider.addEventListener('input', function(){
+  volume = this.value / 100;
+  updateVolume();
+});
+
+updateVolume();
+
+bankSwitch.addEventListener('change', function(){
+  currentBank = this.checked ? bankTwo : bankOne;
+  bankLabel.textContent = this.checked ? "BANK 2" : "BANK 1";
+  if(power) display.textContent = currentBank[1].id;
+});
+
+powerSwitch.addEventListener('change', function(){
+  power = this.checked;
+  powerLabel.textContent = power ? "ON" : "OFF";
+  if(power) display.textContent = "";
+});
+
+
+buttons.forEach(element => {
+  element.addEventListener("click", function () {
+    if(!power) return;
+
+    const key = this.id;
+    const sound = currentBank.find(item => item.keyTrigger === key);
+    if (sound) {
+      const zvuk = new Audio(sound.url);
+      zvuk.volume = volume;
+      zvuk.play();
+      display.textContent = sound.id;
     }
   });
 });
 
-btnList.forEach((element) => {
-  element.addEventListener("keydown", function (e) {
-    const keyTr = e.target.textContent;
-    for (let i = 0; i < bankOne.length; i++) {
-      if (bankOne[i].keyTrigger === keyTr) {
-        const zvuk = new Audio(bankOne[i].url);
-        zvuk.play();
-        break;
-      }
+//keydown
+document.addEventListener("keydown", function (e) {
+  if(!power) return;
+
+  const key = e.key.toUpperCase();
+  const validKeys =['Q','W','E','A','S','D','Z','X','C'];
+
+  if(validKeys.includes(key)){
+    const sound = currentBank.find(item => item.keyTrigger === key);
+    if (sound) {
+      const zvuk = new Audio(sound.url);
+      zvuk.volume = volume;
+      zvuk.play();
+      display.textContent = sound.id;
     }
-  });
+  }    
 });
+
+

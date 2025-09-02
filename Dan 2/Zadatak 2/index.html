@@ -6,41 +6,59 @@
     <link href="index.css" rel="stylesheet" />
     <title>Document</title>
   </head>
-  <div class="window">
-    <div class="left">
-      <div class="top">
-        <button class="button1">Q</button>
-        <button class="button1">W</button>
-        <button class="button1">E</button>
-      </div>
-      <div class="mid">
-        <button  class="button1">A</button>
-        <button  class="button1">S</button>
-        <button class="button1">D</button>
-      </div>
-      <div class="bot">
-        <button  class="button1">Z</button>
-        <button  class="button1">X</button>
-        <button  class="button1">C</button>
-      </div>
+<body>
+    <div class="window">
+        <div class="left">
+            <div class="drum-pad-row">
+                <button class="button1" id="Q">Q</button>
+                <button class="button1" id="W">W</button>
+                <button class="button1" id="E">E</button>
+            </div>
+            <div class="drum-pad-row">
+                <button class="button1" id="A">A</button>
+                <button class="button1" id="S">S</button>
+                <button class="button1" id="D">D</button>
+            </div>
+            <div class="drum-pad-row">
+                <button class="button1" id="Z">Z</button>
+                <button class="button1" id="X">X</button>
+                <button class="button1" id="C">C</button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="control-group">
+                <span class="control-label">POWER</span>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" id="power-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label" id="power-label">ON</span>
+                </div>
+            </div>
+            
+            <div class="display" id="display">
+                Heater 2
+            </div>
+            
+            <div class="control-group">
+                <input type="range" min="0" max="100" value="50" class="volume-slider" id="volume-slider">
+                <div class="volume-value" id="volume-value">Volume: 50%</div>
+            </div>
+            
+            <div class="control-group">
+                <span class="control-label">BANK</span>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" id="bank-switch">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="switch-label" id="bank-label">BANK 1</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="right">
-      <p>POWER</p>
-      <input type="checkbox"/>
 
-      <div>
-        <p>Heater 2</p>
-      </div>
-
-
-    <input type="range"/><br/>
-    <input type="checkbox"/>
-
-
-      </div>
-    </div>
-  </div>
-  <body>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
