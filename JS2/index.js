@@ -112,6 +112,30 @@ const bankTwo = [
   },
 ];
 
-document.querySelector(".button1").addEventListener("click", function (e) {
-  console.log(e.target.keyCode);
+const btnList = document.querySelectorAll(".button1");
+
+btnList.forEach((element) => {
+  element.addEventListener("click", function (e) {
+    const keyTr = e.target.textContent;
+    for (let i = 0; i < bankOne.length; i++) {
+      if (bankOne[i].keyTrigger === keyTr) {
+        const zvuk = new Audio(bankOne[i].url);
+        zvuk.play();
+        break;
+      }
+    }
+  });
+});
+
+btnList.forEach((element) => {
+  element.addEventListener("keydown", function (e) {
+    const keyTr = e.target.textContent;
+    for (let i = 0; i < bankOne.length; i++) {
+      if (bankOne[i].keyTrigger === keyTr) {
+        const zvuk = new Audio(bankOne[i].url);
+        zvuk.play();
+        break;
+      }
+    }
+  });
 });
