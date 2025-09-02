@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const bankOne = [
   {
@@ -127,39 +127,37 @@ const volumeSlider = document.getElementById("volume-slider");
 const volumeValue = document.getElementById("volume-value");
 const buttons = document.querySelectorAll(".button1");
 
-
 volumeSlider.value = volume * 100;
 
-function updateVolume(){
-  volumeValue.textContent = `Volume: ${Math.round(volume*100)}%`;
+function updateVolume() {
+  volumeValue.textContent = `Volume: ${Math.round(volume * 100)}%`;
 }
 
-volumeSlider.addEventListener('input', function(){
+volumeSlider.addEventListener("input", function () {
   volume = this.value / 100;
   updateVolume();
 });
 
 updateVolume();
 
-bankSwitch.addEventListener('change', function(){
+bankSwitch.addEventListener("change", function () {
   currentBank = this.checked ? bankTwo : bankOne;
   bankLabel.textContent = this.checked ? "BANK 2" : "BANK 1";
-  if(power) display.textContent = currentBank[1].id;
+  if (power) display.textContent = currentBank[1].id;
 });
 
-powerSwitch.addEventListener('change', function(){
+powerSwitch.addEventListener("change", function () {
   power = this.checked;
   powerLabel.textContent = power ? "ON" : "OFF";
-  if(power) display.textContent = "";
+  if (power) display.textContent = "";
 });
 
-
-buttons.forEach(element => {
+buttons.forEach((element) => {
   element.addEventListener("click", function () {
-    if(!power) return;
+    if (!power) return;
 
     const key = this.id;
-    const sound = currentBank.find(item => item.keyTrigger === key);
+    const sound = currentBank.find((item) => item.keyTrigger === key);
     if (sound) {
       const zvuk = new Audio(sound.url);
       zvuk.volume = volume;
@@ -171,20 +169,18 @@ buttons.forEach(element => {
 
 //keydown
 document.addEventListener("keydown", function (e) {
-  if(!power) return;
+  if (!power) return;
 
   const key = e.key.toUpperCase();
-  const validKeys =['Q','W','E','A','S','D','Z','X','C'];
+  const validKeys = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
 
-  if(validKeys.includes(key)){
-    const sound = currentBank.find(item => item.keyTrigger === key);
+  if (validKeys.includes(key)) {
+    const sound = currentBank.find((item) => item.keyTrigger === key);
     if (sound) {
       const zvuk = new Audio(sound.url);
       zvuk.volume = volume;
       zvuk.play();
       display.textContent = sound.id;
     }
-  }    
+  }
 });
-
-
