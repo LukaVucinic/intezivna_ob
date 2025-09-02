@@ -1,0 +1,180 @@
+*{
+  margin: 0;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  width: 900px;
+}
+@media (max-width: 900px){
+  body{
+    width: 100% !important;
+    margin: 0;
+  }
+  .navigacija{
+    justify-content: center !important;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height:auto !important;
+  }
+  .navigacija a{
+    width: 100% !important;
+    border-right: 0 !important;
+    border-bottom: 4px solid white;
+  }
+
+  .article{
+    flex-direction: column;
+  }
+}
+
+body a{
+  color: greenyellow;
+}
+
+
+.header-slika {
+  width: 100%;
+  height: 300px;
+}
+
+.header-text {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 5%;
+}
+
+.header {
+  position: relative;
+  height: 400px;
+  background-image: url("1.jpg");
+  background-size: cover;
+  width: 100%;
+}
+
+.navigacija {
+  background-color: rgb(196, 196, 196);
+  height: 50px;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  
+  
+}
+
+.navigacija a {
+  
+  color: rgb(87, 86, 86);
+  text-decoration: none;
+  border-right: 4px solid white;
+  text-transform: uppercase;
+  text-align: center;
+  height: 100%;
+  width: 15%;
+  line-height: 50px;
+  
+}
+
+.navigacija a:hover{
+  background-color: greenyellow;
+  color: red;
+  opacity: 0.8;
+}
+
+.products {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+li > img {
+  display: inline;
+  width: 30%;
+  height: auto;
+  padding: 20px;
+  max-height: 200px;
+}
+
+.leftSide {
+  flex: 70%;
+}
+.leftSide h3 {
+  color: greenyellow;
+  font-size: 30px;
+  padding-left: 40px;
+}
+
+.leftSide h2 {
+  color: greenyellow;
+  text-transform: uppercase;
+}
+
+.rightSide {
+  flex: 30%;
+}
+
+.article {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+}
+
+.left1,
+.left2,
+.right1,
+.right2 {
+  border: 3px solid #777;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+/*.right1 {
+  background-color: gainsboro;
+}*/
+
+.right1 h2{
+  text-transform: uppercase;
+  color: greenyellow;
+}
+
+.right1 p {
+  margin-bottom: 5px;
+}
+
+.right2 h2 {
+  color: greenyellow;
+  text-transform: uppercase;
+}
+
+
+footer {
+  width: 100%;
+  background-color: greenyellow;
+  padding: 25px 0;
+  text-align: center;
+}
+
+footer a{
+  color: black;
+}
+
+footer a:hover{
+  color: white;
+  cursor: pointer;
+}
+
+
+.articleColor:hover{
+  background-color: gainsboro;
+  cursor: pointer;
+}
