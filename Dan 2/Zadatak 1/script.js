@@ -17,7 +17,7 @@ function prosjek(...ocjene) {
 }
 
 //a
-function funk(...studenti) {
+function studentiSaVecimProsjekom(...studenti) {
   for (let i = 0; i < studenti.length; i++) {
     //console.log(studenti[i].ocjene);
     const prosjekStudenta = prosjek(...studenti[i].ocjene);
@@ -31,7 +31,7 @@ function funk(...studenti) {
 }
 
 //b
-function funk2(...studenti) {
+function studentSaNajvecimProsjekom(...studenti) {
   let maxProsjek = 0;
   let maxId = -1;
   for (let i = 0; i < studenti.length; i++) {
@@ -55,7 +55,7 @@ function funk2(...studenti) {
 }
 
 //c
-const prosjeciStud = function (...studenti) {
+const prosjeciStudenata = function (...studenti) {
   const niz = [];
   for (let i = 0; i < studenti.length; i++) {
     //console.log(studenti[i].ocjene);
@@ -66,32 +66,17 @@ const prosjeciStud = function (...studenti) {
   return niz;
 };
 
-function bblSort(arr) {
-  for (var i = 0; i < arr.length; i++) {
-    for (var j = 0; j < arr.length - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        var temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
-    }
-  }
-  return arr;
-  //console.log(arr);
+//d
+function sortiraniPoProsjeku(...studenti) {
+  const studentiSaProsjekom = dodavanjeProsjekaStudentima(...studenti);
+  
+  const sortirani = studentiSaProsjekom.sort((a,b) => b.prosjek-a.prosjek);
+  console.log(sortirani);
+  return sortirani;
 }
 
-function funk4(...studenti) {
-  const nizProsjeka = prosjeciStud(...studenti);
-  const sortedNiz = bblSort(nizProsjeka);
-  console.log(sortedNiz);
-  for (let i = 0; i < sortedNiz.length; i++) {
-    for (let j = 0; j < sortedNiz.length; j++) {
-      if (sortedNiz[i] === studenti[j].prosjek) console.log(studenti[i]);
-    }
-  }
-}
-
-function funk5(...studenti) {
+//e
+function dodavanjeProsjekaStudentima(...studenti) {
   for (let i = 0; i < studenti.length; i++) {
     const prosjekStudenta = prosjek(...studenti[i].ocjene);
     studenti[i].prosjek = prosjekStudenta;
@@ -99,10 +84,10 @@ function funk5(...studenti) {
   return studenti;
 }
 
-console.log(prosjeciStud(...studenti));
+console.log(prosjeciStudenata(...studenti));
 
-funk(...studenti);
-funk2(...studenti);
-console.log(funk5(...studenti));
+studentiSaVecimProsjekom(...studenti);
+studentSaNajvecimProsjekom(...studenti);
+console.log(dodavanjeProsjekaStudentima(...studenti));
 
-funk4(...studenti);
+sortiraniPoProsjeku(...studenti);
