@@ -8,19 +8,19 @@ const studenti = [
   { ime: "Ivana", prezime: "Stanković", godina: 1, ocjene: [9, 10, 9, 8, 9] },
 ];
 
-function prosjek(...ocjene) {
+function prosjek(ocjene) {
   let suma = 0;
   for (let i = 0; i < ocjene.length; i++) {
     suma = suma + ocjene[i];
   }
-  return suma / 5;
+  return suma / ocjene.length;
 }
 
 //a
-function studentiSaVecimProsjekom(...studenti) {
+function studentiSaVecimProsjekom(studenti) {
   for (let i = 0; i < studenti.length; i++) {
     //console.log(studenti[i].ocjene);
-    const prosjekStudenta = prosjek(...studenti[i].ocjene);
+    const prosjekStudenta = prosjek(studenti[i].ocjene);
     //console.log(prosjekStudenta);
 
     if (prosjekStudenta > 8.5) console.log(studenti[i]);
@@ -31,12 +31,12 @@ function studentiSaVecimProsjekom(...studenti) {
 }
 
 //b
-function studentSaNajvecimProsjekom(...studenti) {
+function studentSaNajvecimProsjekom(studenti) {
   let maxProsjek = 0;
   let maxId = -1;
   for (let i = 0; i < studenti.length; i++) {
     //console.log(studenti[i].ocjene);
-    const prosjekStudenta = prosjek(...studenti[i].ocjene);
+    const prosjekStudenta = prosjek(studenti[i].ocjene);
     console.log(prosjekStudenta);
 
     if (prosjekStudenta >= maxProsjek) {
@@ -55,11 +55,11 @@ function studentSaNajvecimProsjekom(...studenti) {
 }
 
 //c
-const prosjeciStudenata = function (...studenti) {
+const prosjeciStudenata = function (studenti) {
   const niz = [];
   for (let i = 0; i < studenti.length; i++) {
     //console.log(studenti[i].ocjene);
-    const prosjekStudenta = prosjek(...studenti[i].ocjene);
+    const prosjekStudenta = prosjek(studenti[i].ocjene);
     //console.log(prosjekStudenta);
     niz.push(prosjekStudenta);
   }
@@ -67,8 +67,8 @@ const prosjeciStudenata = function (...studenti) {
 };
 
 //d
-function sortiraniPoProsjeku(...studenti) {
-  const studentiSaProsjekom = dodavanjeProsjekaStudentima(...studenti);
+function sortiraniPoProsjeku(studenti) {
+  const studentiSaProsjekom = dodavanjeProsjekaStudentima(studenti);
   
   const sortirani = studentiSaProsjekom.sort((a,b) => b.prosjek-a.prosjek);
   console.log(sortirani);
@@ -76,18 +76,18 @@ function sortiraniPoProsjeku(...studenti) {
 }
 
 //e
-function dodavanjeProsjekaStudentima(...studenti) {
+function dodavanjeProsjekaStudentima(studenti) {
   for (let i = 0; i < studenti.length; i++) {
-    const prosjekStudenta = prosjek(...studenti[i].ocjene);
+    const prosjekStudenta = prosjek(studenti[i].ocjene);
     studenti[i].prosjek = prosjekStudenta;
   }
   return studenti;
 }
 
-console.log(prosjeciStudenata(...studenti));
+console.log(prosjeciStudenata(studenti));
 
-studentiSaVecimProsjekom(...studenti);
-studentSaNajvecimProsjekom(...studenti);
-console.log(dodavanjeProsjekaStudentima(...studenti));
+studentiSaVecimProsjekom(studenti);
+studentSaNajvecimProsjekom(studenti);
+console.log(dodavanjeProsjekaStudentima(studenti));
 
-sortiraniPoProsjeku(...studenti);
+sortiraniPoProsjeku(studenti);
