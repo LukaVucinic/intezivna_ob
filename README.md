@@ -1,2 +1,2 @@
-"# intezivna_ob" 
+"# intezivna_ob"   
 Radili: Djordje Marojevic i Luka Vucinic
