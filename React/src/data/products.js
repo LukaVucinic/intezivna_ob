@@ -1,0 +1,118 @@
+export const PRODUCTS = [
+  {
+    id: 1,
+    title: "Telefon",
+    price: 999.99,
+    image:
+      "https://alephksa.com/cdn/shop/files/iPhone_16_Pro_Max_White_Titanium_PDP_Image_Position_1__en-ME_1b7c0966-4747-4174-8e96-47b5226d7e4f.jpg?v=1750067799&width=1920",
+    isFeatured: true,
+    category: "Telefon",
+    rating: 4.7,
+  },
+  {
+    id: 2,
+    title: "Laptop",
+    price: 1299.99,
+    image: "https://techterms.com/img/xl/laptop_586.png",
+    isFeatured: false,
+    category: "Laptop",
+    rating: 4.3,
+  },
+  {
+    id: 3,
+    title: "Slusalice",
+    price: 149.99,
+    image: "https://m.media-amazon.com/images/I/61bDCk+O+pL.jpg",
+    isFeatured: true,
+    category: "Dodaci",
+    rating: 4.5,
+  },
+  {
+    id: 4,
+    title: "Pametni sat",
+    price: 399.99,
+    image:
+      "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/apple-watch-series-9.png",
+    isFeatured: false,
+    category: "Dodaci",
+    rating: 3.6,
+  },
+  {
+    id: 5,
+    title: "Tablet",
+    price: 799.99,
+    image:
+      "https://media.ldlc.com/r1600/ld/products/00/06/13/37/LD0006133780.jpg",
+    isFeatured: false,
+    category: "Tablet",
+    rating: 3.8,
+  },
+  {
+    id: 6,
+    title: "Bezicni punjac",
+    price: 79.99,
+    image:
+      "https://www.myepico.com/wp-content/uploads/2021/08/EPI-PH-PB08-SG-02.jpg",
+    isFeatured: false,
+    category: "Dodaci",
+    rating: 4.0,
+  },
+  {
+    id: 7,
+    title: "Telefon",
+    price: 999.99,
+    image:
+      "https://alephksa.com/cdn/shop/files/iPhone_16_Pro_Max_White_Titanium_PDP_Image_Position_1__en-ME_1b7c0966-4747-4174-8e96-47b5226d7e4f.jpg?v=1750067799&width=1920",
+    isFeatured: true,
+    category: "Telefon",
+    rating: 4.7,
+  },
+  {
+    id: 8,
+    title: "Laptop",
+    price: 1299.99,
+    image: "https://techterms.com/img/xl/laptop_586.png",
+    isFeatured: false,
+    category: "Laptop",
+    rating: 4.3,
+  },
+  {
+    id: 9,
+    title: "Slusalice",
+    price: 149.99,
+    image: "https://m.media-amazon.com/images/I/61bDCk+O+pL.jpg",
+    isFeatured: true,
+    category: "Dodaci",
+    rating: 4.5,
+  },
+  {
+    id: 10,
+    title: "Pametni sat",
+    price: 399.99,
+    image:
+      "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/apple-watch-series-9.png",
+    isFeatured: false,
+    category: "Dodaci",
+    rating: 3.6,
+  },
+  {
+    id: 11,
+    title: "Tablet",
+    price: 799.99,
+    image:
+      "https://media.ldlc.com/r1600/ld/products/00/06/13/37/LD0006133780.jpg",
+    isFeatured: false,
+    category: "Tablet",
+    rating: 3.8,
+  },
+  {
+    id: 12,
+    title: "Bezicni punjac",
+    price: 79.99,
+    image:
+      "https://www.myepico.com/wp-content/uploads/2021/08/EPI-PH-PB08-SG-02.jpg",
+    isFeatured: false,
+    category: "Dodaci",
+    rating: 4.0,
+  },
+];
