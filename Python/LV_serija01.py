@@ -76,5 +76,18 @@ funk39(153)
 # split_string(“da”, 7) -> [“da*****”]
 
 
-def split_spring(s, n):
-    pass
+def split_string(string, number):
+    result = []
+    i = 0
+    n = len(string)
+
+    while i < n:
+        substring = string[i:i + number]
+
+        if len(substring) < number:
+            substring += '*' * (number - len(substring))
+
+        result.append(substring)
+        i += number
+
+    return result
