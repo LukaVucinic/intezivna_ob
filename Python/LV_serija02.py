@@ -266,7 +266,7 @@ print(c2)
 print("comp1 moze platiti zaposlene:", c1.can_pay_employees())
 print("comp2 moze platiti zaposlene:", c2.can_pay_employees())
 
-c1.remove_employee("Marija", "Ivanovic")
+c1.remove_employee("Marija", "ivanovic")
 
 if c1 > c2:
     print(f"{c1.get_name()} ima vise zaposlenih.")

@@ -1,0 +1,5 @@
+”Marko”,”Markovic”,2,8.6
+Boris,Boricic,3,7.9
+Novak,Novovic,3,6.9
+Janko,Djuroivc,3,6.0
+Ivan,Kontic,3,9.7
