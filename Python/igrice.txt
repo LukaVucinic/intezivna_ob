@@ -1,0 +1,10 @@
+GTA 5;9.5;2012;Rockstar;Action Crime
+GTA 4;9.0;2010;Rockstar;Action Crime
+GTA San Andreas;9.2;2008;Rockstar;Action Crime
+EA Sports FC 25;9.7;2025;EA Sports;Sports
+EA Sports FC 24;9.3;2024;EA Sports;Sports
+Red Dead Redemption 2;9.8;2018;Rockstar;Action Adventure
+The Witcher 3: Wild Hunt;9.7;2015;CD Projekt;RPG
+Cyberpunk 2077;8.9;2020;CD Projekt;RPG
+Call of Duty: Modern Warfare II;9.1;2022;Activision;FPS
+Elden Ring;9.6;2022;FromSoftware;RPG

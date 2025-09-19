@@ -1,6 +1,7 @@
 from functools import reduce
 import time
 from functools import wraps
+from datetime import datetime
 
 
 # 2
@@ -95,6 +96,164 @@ print(get_students_with_greater_grade(3, "A"))
 
 
 # 16
+
+ZANROVI = ["Action", "Crime", "Sports", "FPS", "RPG", "Adventure"]
+
+
+def validacija(naziv, ocjena, godina, izdavac, zanrovi):
+    try:
+        if not (2 <= len(naziv) <= 50):
+            print("Los naziv")
+
+        if not (1 <= round(float(ocjena), 2) <= 10):
+            print("Losa ocjena")
+
+        if not (1950 < int(godina) < datetime.now().year):
+            print("Losa godina")
+
+        if izdavac != "" and not (2 <= len(izdavac) <= 40):
+            print("Los izdavac")
+
+        zanrovi_list = zanrovi.split()
+        if not (1 <= len(zanrovi_list) <= 3):
+            print("Losi zanrovi")
+        for z in zanrovi_list:
+            if z not in ZANROVI:
+                print(
+                    f"Zanr '{z}' nije dozvoljen. Dozvoljeni: {','.join(ZANROVI)}")
+
+        return {"naziv": naziv, "ocjena": ocjena, "godina": godina, "izdavac": izdavac, "zanrovi": zanrovi_list}
+
+    except ValueError as err:
+        print("Greska:", err)
+        return None
+
+
+def ucitaj_igrice():
+    igrice = []
+
+    with open("igrice.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+
+            igrica = line.split(";")
+            if len(igrica) != 5:
+                continue
+
+            naziv, ocjena, godina, izdavac, zanrovi = igrica
+            igra = validacija(naziv, ocjena, godina, izdavac, zanrovi)
+            if igra:
+                igrice.append(igra)
+
+    return igrice
+
+
+def dodaj_igrice():
+    igre = []
+    while True:
+        print("\nUnesite novu igru ili 'STOP':")
+        naziv = input("Naziv: ")
+        if naziv.upper() == "STOP":
+            break
+        ocjena = input("Ocjena 1-10: ")
+        godina = input("Godina izlaska: ")
+        izdavac = input("Izdavac: ")
+        print(f"Moguci zanrovi: {', '.join(ZANROVI)}")
+        zanrovi = input("Zanrovi: ")
+
+        igrica = validacija(naziv, ocjena, godina, izdavac, zanrovi)
+        if igrica:
+            igre.append(igrica)
+            with open("igrice.txt", "a", encoding="utf-8") as f:
+                line = f"{igrica['naziv']};{igrica['ocjena']};{igrica['godina']};{igrica['izdavac']};{' '.join(igrica['zanrovi'])}\n"
+                f.write(line)
+            print("Igrica dodata.")
+    return igre
+
+
+def filtriraj_igrice(igrice):
+    while True:
+        print("Filteri:")
+        print("1. Po nazivu")
+        print("2. Po ocjeni vece od unesene")
+        print("3. Po godini")
+        print("4. Po izdavacu")
+        print("5. Po zanru")
+        print("6. STOP")
+
+        izbor = input("Unesi broj 1-6: ")
+        rezultat = []
+
+        if izbor == "1":
+            naziv = input("Naziv: ").lower()
+            rezultat = [
+                i for i in igrice if i["naziv"].lower().startswith(naziv)]
+
+        elif izbor == "2":
+            ocj = float(input("Minimalna ocjena 1-10: "))
+            rezultat = [i for i in igrice if float(i["ocjena"]) >= ocj]
+
+        elif izbor == "3":
+            godina = int(input("Godina: "))
+            opcija = input("prije/nakon: ").lower()
+            if opcija == "prije":
+                rezultat = [i for i in igrice if int(i["godina"]) < godina]
+            else:
+                rezultat = [i for i in igrice if int(i["godina"]) > godina]
+
+        elif izbor == "4":
+            izdavac = input("Ime izdavaca: ").lower()
+            rezultat = [
+                i for i in igrice if i["izdavac"].lower().startswith(izdavac)]
+
+        elif izbor == "5":
+            print(f"Dostupni zanrovi: {', '.join(ZANROVI)}")
+            zanrovi = input("Zanrove 1-3 odvojeni sa space: ").lower().split()
+            for i in igrice:
+                temp = list(i["zanrovi"])
+                provjera = []
+                for zanr in temp:
+                    zanr = zanr.lower()
+                    provjera.append(zanr)
+                if all(z in provjera for z in zanrovi):
+                    rezultat.append(i)
+        elif izbor == "6":
+            break
+        else:
+            print("Nepoznat izbor")
+
+        if rezultat:
+            for i in rezultat:
+                print(
+                    f"{i['naziv']} ({i['ocjena']}) - {i['godina']} - {i['izdavac']} - {' '.join(i['zanrovi'])}")
+        else:
+            print("Nema rezultata")
+
+
+igrice = ucitaj_igrice()
+
+if igrice:
+    for item in igrice:
+        print(
+            f"{item['naziv']} ({item['ocjena']}) - {item['godina']} - {item['izdavac']} - {' '.join(item['zanrovi'])}")
+        # naziv - ocjena - godina - izdavac - zanr
+else:
+    print("Nema igrica")
+
+
+while True:
+    odgovor = input("Dodaj igrice?: ").lower()
+    if odgovor == "da":
+        nove_igre = dodaj_igrice()
+        igrice.extend(nove_igre)
+    elif odgovor == "ne":
+        break
+    else:
+        print("Nepoznat odgovor")
+
+filtriraj_igrice(igrice)
 
 
 # 17
